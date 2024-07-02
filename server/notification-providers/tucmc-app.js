@@ -28,6 +28,10 @@ class TUCMCApp extends NotificationProvider {
                 textMsg = "🗓️ Daily Summary Notification";
             }
 
+            if (heartbeatJSON && heartbeatJSON.type === "certificate") {
+                textMsg = "📑 Certificate Expiry Reminder";
+            }
+
             const baseURL = await setting("primaryBaseURL");
             if (baseURL && monitorJSON) {
                 textMsg += ` >> ${baseURL + getMonitorRelativeURL(monitorJSON.id)}`;
