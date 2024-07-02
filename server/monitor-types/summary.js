@@ -19,7 +19,7 @@ class SummaryMonitorType extends MonitorType {
         heartbeat.status = UP;
         const hr = dayjs().hour();
 
-        const summaryTime = 0;
+        const summaryTime = 16;
 
         if (!monitor.reNight) {
             if (hr !== summaryTime) {
@@ -27,12 +27,12 @@ class SummaryMonitorType extends MonitorType {
             }else{
                 monitor.reNight = true;
             }
+        }
+
+        if (hr === summaryTime) {
+            return;
         }else{
-            if (hr === summaryTime) {
-                return;
-            }else{
-                monitor.reNight = false;
-            }
+            monitor.reNight = false;
         }
 
         const notificationList = await Monitor.getNotificationList(monitor);

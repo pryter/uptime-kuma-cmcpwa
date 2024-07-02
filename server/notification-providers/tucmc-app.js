@@ -24,7 +24,7 @@ class TUCMCApp extends NotificationProvider {
                 textMsg = "🔴 Application went down";
             }
 
-            if (heartbeatJSON.type === "summary") {
+            if (heartbeatJSON && heartbeatJSON.type === "summary") {
                 textMsg = "🗓️ Daily Summary Notification";
             }
 
