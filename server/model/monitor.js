@@ -927,7 +927,6 @@ class Monitor extends BeanModel {
             // Don't notify if disrupted changes to up
             if (isImportant) {
                 bean.important = true;
-
                 if (Monitor.isImportantForNotification(isFirstBeat, previousBeat?.status, bean.status)) {
                     log.debug("monitor", `[${this.name}] sendNotification`);
                     await Monitor.sendNotification(isFirstBeat, this, bean);
@@ -1307,17 +1306,18 @@ class Monitor extends BeanModel {
      * @returns {void}
      */
     static async sendNotification(isFirstBeat, monitor, bean) {
-        if (!isFirstBeat || bean.status === DOWN) {
+        if (!isFirstBeat) {
             const notificationList = await Monitor.getNotificationList(monitor);
 
             let text;
+            let msg;
             if (bean.status === UP) {
-                text = "✅ Up";
+                text = "Up";
+                msg = `[${monitor.name}] is currently ${text}.`;
             } else {
-                text = "🔴 Down";
+                text = "Down";
+                msg = `[${monitor.name}] is currently ${text}. \n${bean.msg}`;
             }
-
-            let msg = `[${monitor.name}] [${text}] ${bean.msg}`;
 
             for (let notification of notificationList) {
                 try {

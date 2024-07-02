@@ -112,6 +112,7 @@ class UptimeKumaServer {
         UptimeKumaServer.monitorTypeList["real-browser"] = new RealBrowserMonitorType();
         UptimeKumaServer.monitorTypeList["tailscale-ping"] = new TailscalePing();
         UptimeKumaServer.monitorTypeList["dns"] = new DnsMonitorType();
+        UptimeKumaServer.monitorTypeList["summary"] = new SummaryMonitorType();
         UptimeKumaServer.monitorTypeList["mqtt"] = new MqttMonitorType();
         UptimeKumaServer.monitorTypeList["mongodb"] = new MongodbMonitorType();
 
@@ -518,3 +519,4 @@ const { TailscalePing } = require("./monitor-types/tailscale-ping");
 const { DnsMonitorType } = require("./monitor-types/dns");
 const { MqttMonitorType } = require("./monitor-types/mqtt");
 const { MongodbMonitorType } = require("./monitor-types/mongodb");
+const {SummaryMonitorType} = require("./monitor-types/summary");

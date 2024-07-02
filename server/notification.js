@@ -64,6 +64,7 @@ const SevenIO = require("./notification-providers/sevenio");
 const Whapi = require("./notification-providers/whapi");
 const GtxMessaging = require("./notification-providers/gtx-messaging");
 const Cellsynt = require("./notification-providers/cellsynt");
+const TUCMCApp = require("./notification-providers/tucmc-app");
 
 class Notification {
 
@@ -145,6 +146,7 @@ class Notification {
             new Whapi(),
             new GtxMessaging(),
             new Cellsynt(),
+            new TUCMCApp()
         ];
         for (let item of list) {
             if (! item.name) {

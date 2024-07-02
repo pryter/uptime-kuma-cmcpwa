@@ -110,6 +110,7 @@ export default {
 
         notificationNameList() {
             let regularList = {
+                "TUCMCApp": "TUCMCApp",
                 "alerta": "Alerta",
                 "AlertNow": "AlertNow",
                 "apprise": this.$t("apprise"),

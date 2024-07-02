@@ -12,6 +12,9 @@
                                 <label for="type" class="form-label">{{ $t("Monitor Type") }}</label>
                                 <select id="type" v-model="monitor.type" class="form-select">
                                     <optgroup :label="$t('General Monitor Type')">
+                                        <option value="summary">
+                                            Summary
+                                        </option>
                                         <option value="group">
                                             {{ $t("Group") }}
                                         </option>

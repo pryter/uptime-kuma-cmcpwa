@@ -62,12 +62,14 @@ import Splunk from "./Splunk.vue";
 import SevenIO from "./SevenIO.vue";
 import Whapi from "./Whapi.vue";
 import Cellsynt from "./Cellsynt.vue";
+import TUCMCApp from "./TUCMCApp.vue";
 
 /**
  * Manage all notification form.
  * @type { Record<string, any> }
  */
 const NotificationFormList = {
+    "TUCMCApp": TUCMCApp,
     "alerta": Alerta,
     "AlertNow": AlertNow,
     "AliyunSMS": AliyunSMS,
